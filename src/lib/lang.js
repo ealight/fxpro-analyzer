@@ -100,6 +100,7 @@ export const TRANSLATIONS = {
       warnSplitMin:        'Minimum lot ({min}) applied to each split position — actual total risk ${actual} exceeds the intended ${risk}.',
       warnSplitFixDeposit: 'To avoid clamping with {risk}% risk: deposit at least',
       warnSplitFixRisk:    'To avoid clamping with ${deposit} deposit: set risk to at least',
+      warnSplitSuggest:    'Or reduce split to {n} position(s) to stay within limits.',
     },
     journal: {
       title:         'Trade Journal',
@@ -273,6 +274,7 @@ export const TRANSLATIONS = {
       warnSplitMin:        'Мінімальний лот ({min}) застосовано до кожної позиції — фактичний сукупний ризик ${actual} перевищує заплановані ${risk}.',
       warnSplitFixDeposit: 'Щоб уникнути обмеження при ризику {risk}%: поповніть депозит до',
       warnSplitFixRisk:    'Щоб уникнути обмеження при депозиті ${deposit}: встановіть ризик не менше',
+      warnSplitSuggest:    'Або зменшіть кількість позицій до {n} — це вкладається у ліміт.',
     },
     journal: {
       title:         'Журнал угод',
