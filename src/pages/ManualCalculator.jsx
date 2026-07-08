@@ -53,7 +53,7 @@ export default function ManualCalculator() {
   const [tps, setTps]                   = useState([''])
   const [deposit, setDeposit]           = useState(String(s.default_deposit))
   const [risk, setRisk]                 = useState(String(s.default_risk))
-  const [split, setSplit]               = useState('1')
+  const [split, setSplit]               = useState(String(s.default_split ?? 4))
   const [error, setError]               = useState('')
   const [loading, setLoading]           = useState(false)
   const [calc, setCalc]                 = useState(null)

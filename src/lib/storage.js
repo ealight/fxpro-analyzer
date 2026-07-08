@@ -7,6 +7,7 @@ const DEFAULT_SETTINGS = {
   default_risk:    1.0,
   theme:           'dark',
   min_lot:         0.01,
+  default_split:   4,
 }
 
 export function getSettings() {

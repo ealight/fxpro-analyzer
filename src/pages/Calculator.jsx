@@ -33,7 +33,7 @@ export default function Calculator() {
   const [signal, setSignal]     = useState('')
   const [deposit, setDeposit]   = useState(String(s.default_deposit))
   const [risk, setRisk]         = useState(String(s.default_risk))
-  const [split, setSplit]       = useState('1')
+  const [split, setSplit]       = useState(String(s.default_split ?? 4))
   const [contractSize, setContractSize] = useState('')
   const [pipSize, setPipSize]           = useState('')
   const [pipValue, setPipValue]         = useState('')

@@ -5,7 +5,7 @@ import { useLang } from '../contexts/LangContext'
 export default function Settings() {
   const { t } = useLang()
   const [form, setForm] = useState({
-    currency: 'USD', default_deposit: 10000, default_risk: 1.0, min_lot: 0.01,
+    currency: 'USD', default_deposit: 10000, default_risk: 1.0, min_lot: 0.01, default_split: 4,
   })
   const [msg, setMsg]       = useState(null)
   const [saving, setSaving] = useState(false)
@@ -23,6 +23,7 @@ export default function Settings() {
       default_deposit: parseFloat(form.default_deposit),
       default_risk:    parseFloat(form.default_risk),
       min_lot:         parseFloat(form.min_lot),
+      default_split:   parseInt(form.default_split),
     }
     try {
       await API.saveSettings(payload)
@@ -68,6 +69,15 @@ export default function Settings() {
                   <input type="number" className="form-control" min="0.001" max="100" step="0.001"
                     value={form.min_lot} onChange={set('min_lot')} />
                   <div className="form-text">{t('settings.minLotHint')}</div>
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">{t('settings.defaultSplit')}</label>
+                  <select className="form-select" value={form.default_split} onChange={set('default_split')}>
+                    <option value="1">{t('calc.split1')}</option>
+                    <option value="2">{t('calc.split2')}</option>
+                    <option value="4">{t('calc.split4')}</option>
+                    <option value="8">{t('calc.split8')}</option>
+                  </select>
                 </div>
                 <button className="btn btn-accent w-100" onClick={save} disabled={saving}>
                   {saving
