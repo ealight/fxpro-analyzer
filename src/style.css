@@ -1,0 +1,311 @@
+/* ── Custom properties ─────────────────────────────────────────────────── */
+:root {
+  --accent:         #4caf82;
+  --accent-hover:   #3d9970;
+  --sidebar-w:      230px;
+  --sidebar-bg:     #111318;
+  --surface:        #1a1d23;
+  --surface-2:      #22262e;
+  --border-col:     #2a2e38;
+  --text-base:      #d0d5e0;
+  --text-muted-col: #6b7280;
+  --bs-body-bg:     #13161c;
+  --bs-body-color:  var(--text-base);
+}
+
+/* ── Reset / base ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bs-body-bg);
+  color: var(--text-base);
+  overflow-x: hidden;
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────── */
+#sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-col);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.sidebar-brand {
+  padding: 1.25rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  border-bottom: 1px solid var(--border-col);
+  white-space: nowrap;
+}
+
+#sidebar .nav-link {
+  color: var(--text-muted-col);
+  padding: .65rem 1.25rem;
+  border-radius: 6px;
+  margin: 2px 8px;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  font-size: .9rem;
+  transition: background .15s, color .15s;
+  text-decoration: none;
+}
+
+#sidebar .nav-link:hover {
+  background: var(--surface-2);
+  color: var(--text-base);
+}
+
+#sidebar .nav-link.active {
+  background: rgba(76,175,130,.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border-col);
+  font-size: .75rem;
+}
+
+/* ── Content wrapper ───────────────────────────────────────────────────── */
+#content-wrapper {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+}
+
+.page-header {
+  padding: 1.25rem 1.5rem .75rem;
+  border-bottom: 1px solid var(--border-col);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.page-body { padding: 1.5rem; }
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-col);
+  border-radius: 10px;
+}
+
+.card-header {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-col);
+  padding: .7rem 1rem;
+  font-size: .9rem;
+}
+
+/* ── Stat cards ─────────────────────────────────────────────────────────── */
+.stat-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-col);
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  min-height: 80px;
+}
+
+.stat-card .stat-label {
+  font-size: .73rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted-col);
+  margin-bottom: .2rem;
+}
+
+.stat-card .stat-value {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: .73rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted-col);
+  margin-bottom: .2rem;
+}
+
+/* ── Accent colour helpers ───────────────────────────────────────────────── */
+.text-accent { color: var(--accent) !important; }
+
+.btn-accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-accent:hover, .btn-accent:focus {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #fff;
+}
+
+.btn-outline-accent {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-outline-accent:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--border-col);
+  color: var(--text-base);
+  font-size: .88rem;
+}
+
+.table-dark {
+  --bs-table-bg: transparent;
+  --bs-table-striped-bg: var(--surface-2);
+  --bs-table-hover-bg: rgba(76,175,130,.08);
+}
+
+.table thead th {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-muted-col);
+  border-bottom: 2px solid var(--border-col);
+  white-space: nowrap;
+}
+
+.sortable { cursor: pointer; user-select: none; }
+.sortable:hover { color: var(--accent); }
+
+/* ── Signal textarea ──────────────────────────────────────────────────── */
+.signal-textarea {
+  font-family: 'Consolas', monospace;
+  font-size: .88rem;
+  resize: vertical;
+  background: var(--surface-2);
+  color: var(--text-base);
+  border-color: var(--border-col);
+}
+
+.signal-textarea:focus {
+  background: var(--surface-2);
+  border-color: var(--accent);
+  color: var(--text-base);
+  box-shadow: 0 0 0 .2rem rgba(76,175,130,.2);
+}
+
+/* ── Signal info mini-cards ─────────────────────────────────────────────── */
+.signal-mini-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-col);
+  border-radius: 8px;
+  padding: .6rem .8rem;
+}
+
+.signal-mini-card .mini-label {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--text-muted-col);
+}
+
+.signal-mini-card .mini-val {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ── Direction badge ──────────────────────────────────────────────────── */
+.badge-buy  { background: rgba(76,175,130,.2); color: var(--accent); }
+.badge-sell { background: rgba(239,68,68,.2);  color: #ef4444; }
+
+/* ── Profit colours ───────────────────────────────────────────────────── */
+.profit-pos  { color: var(--accent); }
+.profit-neg  { color: #ef4444; }
+.profit-zero { color: var(--text-muted-col); }
+
+/* ── Status badges ────────────────────────────────────────────────────── */
+.status-open       { background: rgba(59,130,246,.2); color: #3b82f6; padding: .2em .5em; border-radius: 4px; font-size: .78rem; }
+.status-closed     { background: rgba(76,175,130,.2); color: var(--accent); padding: .2em .5em; border-radius: 4px; font-size: .78rem; }
+.status-cancelled  { background: rgba(107,114,128,.2); color: #9ca3af; padding: .2em .5em; border-radius: 4px; font-size: .78rem; }
+
+/* ── Forms ────────────────────────────────────────────────────────────── */
+.form-control, .form-select {
+  background: var(--surface-2);
+  border-color: var(--border-col);
+  color: var(--text-base);
+}
+
+.form-control:focus, .form-select:focus {
+  background: var(--surface-2);
+  border-color: var(--accent);
+  color: var(--text-base);
+  box-shadow: 0 0 0 .2rem rgba(76,175,130,.2);
+}
+
+.form-control::placeholder { color: var(--text-muted-col); }
+.form-text { color: var(--text-muted-col); }
+
+/* ── Pagination ───────────────────────────────────────────────────────── */
+.pagination .page-link {
+  background: var(--surface-2);
+  border-color: var(--border-col);
+  color: var(--text-base);
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Modal ────────────────────────────────────────────────────────────── */
+.modal-content {
+  background: var(--surface);
+  border: 1px solid var(--border-col);
+}
+
+/* ── Chart canvas ─────────────────────────────────────────────────────── */
+canvas { max-width: 100%; }
+
+/* ── Copy button ─────────────────────────────────────────────────────── */
+.btn-copy {
+  padding: .1rem .45rem;
+  font-size: .75rem;
+  border: 1px solid var(--border-col);
+  background: transparent;
+  color: var(--text-muted-col);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.btn-copy:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #sidebar { width: 60px; }
+  #sidebar .sidebar-brand span,
+  #sidebar .sidebar-footer { display: none; }
+  #sidebar .nav-link { justify-content: center; padding: .65rem; }
+  #content-wrapper { margin-left: 60px; }
+}
