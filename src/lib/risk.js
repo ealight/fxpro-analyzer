@@ -86,6 +86,16 @@ export function calculate({
   const pos_clamped = raw_per_lot < min_lot
   const per_risk    = risk_dollars / split
 
+  let actual_split_risk    = null
+  let min_deposit_for_split = null
+  let min_risk_for_split    = null
+  if (pos_clamped && sl_pips_raw > 0) {
+    const needed_risk_dollars = min_lot * split * sl_pips_raw * pip_val
+    actual_split_risk     = Math.round(min_lot * sl_pips_raw * pip_val * split * 100) / 100
+    min_deposit_for_split = Math.round(needed_risk_dollars / (risk_percent / 100) * 100) / 100
+    min_risk_for_split    = Math.round(needed_risk_dollars / deposit * 100 * 100) / 100
+  }
+
   const positions = Array.from({ length: split }, (_, idx) => {
     const pos_num  = idx + 1
     const tp_idx   = Math.min(idx, take_profits.length - 1)
@@ -130,6 +140,9 @@ export function calculate({
     take_profit_results,
     positions,
     margin_required,
+    actual_split_risk,
+    min_deposit_for_split,
+    min_risk_for_split,
     break_even: {
       locked_profit_at_tp1:    locked_profit,
       remaining_risk_after_be: 0,

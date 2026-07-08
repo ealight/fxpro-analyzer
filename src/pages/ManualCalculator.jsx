@@ -400,7 +400,9 @@ export default function ManualCalculator() {
                     </div>
                     {calc.positions.some(p => p.clamped_to_min) && (
                       <div className="alert alert-danger">
-                        {t('calc.warnSplitMin', { min: calc.positions[0].lot, risk: fmtNum(calc.risk_amount) })}
+                        {t('calc.warnSplitMin', { min: calc.positions[0].lot, actual: fmtNum(calc.actual_split_risk), risk: fmtNum(calc.risk_amount) })}<br />
+                        {t('calc.warnSplitFixDeposit', { risk })} <strong>${fmtNum(calc.min_deposit_for_split)}</strong>.<br />
+                        {t('calc.warnSplitFixRisk', { deposit: fmtNum(parseFloat(deposit)) })} <strong>{calc.min_risk_for_split}%</strong>.
                       </div>
                     )}
                   </>

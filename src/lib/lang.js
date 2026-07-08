@@ -97,7 +97,9 @@ export const TRANSLATIONS = {
       warnMinLot:    'Calculated lot ({raw}) is below the broker minimum ({min}).',
       warnMinRiskA:  'To reach minimum lot with ${deposit} deposit: set risk to at least',
       warnMinRiskB:  'To reach minimum lot with {risk}% risk: deposit at least',
-      warnSplitMin:  'Minimum lot ({min}) applied to each split position — actual total risk exceeds the intended ${risk}. Lower your split count or increase your deposit.',
+      warnSplitMin:        'Minimum lot ({min}) applied to each split position — actual total risk ${actual} exceeds the intended ${risk}.',
+      warnSplitFixDeposit: 'To avoid clamping with {risk}% risk: deposit at least',
+      warnSplitFixRisk:    'To avoid clamping with ${deposit} deposit: set risk to at least',
     },
     journal: {
       title:         'Trade Journal',
@@ -268,7 +270,9 @@ export const TRANSLATIONS = {
       warnMinLot:    'Розрахований лот ({raw}) є меншим за мінімум брокера ({min}).',
       warnMinRiskA:  'Щоб досягти мін. лота при депозиті ${deposit}: встановіть ризик не менше',
       warnMinRiskB:  'Щоб досягти мін. лота при ризику {risk}%: поповніть депозит до',
-      warnSplitMin:  'Мінімальний лот ({min}) застосовано до кожної позиції — фактичний сукупний ризик перевищує заплановані ${risk}. Зменшіть кількість позицій або збільшіть депозит.',
+      warnSplitMin:        'Мінімальний лот ({min}) застосовано до кожної позиції — фактичний сукупний ризик ${actual} перевищує заплановані ${risk}.',
+      warnSplitFixDeposit: 'Щоб уникнути обмеження при ризику {risk}%: поповніть депозит до',
+      warnSplitFixRisk:    'Щоб уникнути обмеження при депозиті ${deposit}: встановіть ризик не менше',
     },
     journal: {
       title:         'Журнал угод',
